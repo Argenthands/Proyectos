@@ -1,20 +1,28 @@
 # [Api Rest]()
 
-1) **Crear y activar un entorno virtual**
+1) **Crear la rama del proyecto**
+
+    comando de consola (PowerShell)
+    ```PowerShell
+    git branch ApiRest01
+    git checkout ApiRest01
+    ```
+
+2) **Crear y activar un entorno virtual**
 
     comando de consola (PowerShell)
     ```PowerShell
     python -m venv venv
     venv\Scripts\activate
     ```
-2) **Instalar Flask**
+3) **Instalar Flask**
 
     comando de consola (PowerShell)
     ```PowerShell
     pip install Flask
     ```
 
-3) **Crear el archivo app.py**
+4) **Crear el archivo app.py**
 
     comando de consola (PowerShell)
     ```PowerShell
