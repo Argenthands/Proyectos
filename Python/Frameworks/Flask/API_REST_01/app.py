@@ -30,6 +30,10 @@ def get_user(user_id):
     }
     return usuario
 # POST |---> Enviar datos
+@app.route('/usuarios', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    return jsonify({'message': 'Usuario creado', 'data': data}), 201
 # PUT |---> Actualizar datos
 # DELETE |---> Eliminar datos
 
