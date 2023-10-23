@@ -4,8 +4,12 @@
 
     comando de consola (PowerShell)
     ```PowerShell
+    #para crear la rama
     git branch ApiRest01
+    #para cambiar a la rama
     git checkout ApiRest01
+    #para subir la rama al repositorio remoto
+    git push --set-upstream origin ApiRest01
     ```
 
 2) **Crear y activar un entorno virtual**
@@ -34,7 +38,7 @@
     from flask import Flask
 
     #Instancia de Flask
-    app =Flask(__name__)
+    app = Flask(__name__)
 
     #Asegurar que el script se ejecute solo si es llamado directamente y no al ser importado como modulo
     if __name__ == '__main__':
