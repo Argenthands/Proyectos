@@ -1,1 +1,0 @@
-# [API REST con PostgreSQL](https://www.youtube.com/watch?v=riijt-xcqYI&ab_channel=UskoKruM2010)
