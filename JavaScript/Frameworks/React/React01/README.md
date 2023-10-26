@@ -22,3 +22,6 @@ npx eslint --init
 
 npm install todomvc-app-css -E # añade el css de la aplicación
 ```
+1) Configurar el Lintern
+2) Crear los componentes Todo y Todos en la carpeta src/components
+3) Crear un mock temporal en App.tsx para chequear que todo funcione
