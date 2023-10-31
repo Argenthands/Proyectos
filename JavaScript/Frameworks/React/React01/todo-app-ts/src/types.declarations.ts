@@ -6,10 +6,18 @@ export interface Todo {
     completed: boolean
 }
 
+export type FilterValue = typeof TODO_FILTERS[keyof typeof TODO_FILTERS];
+export interface FooterProps {
+    activeCount: number
+    completedCount: number
+    //todos: ListOfTodos
+    filterSelected: FilterValue
+    onClearCompleted: () => void
+    handleFilterChange: (filter: FilterValue) => void,
+}
+
 export type TodoID = Pick<Todo, 'id'>
 export type TodoTitle = Omit<Todo, 'id' | 'completed'>
 export type TodoCompleted = Pick<Todo, 'completed'>
 
 export type ListOfTodos = Array<Todo> // or Todo[]
-
-export type FilterValue = typeof TODO_FILTERS[keyof typeof TODO_FILTERS];

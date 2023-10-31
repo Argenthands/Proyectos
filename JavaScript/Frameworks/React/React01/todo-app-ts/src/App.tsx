@@ -59,6 +59,11 @@ const App: React.FC = () => {
 		setTodos(newTodos)
 	}
 
+	const handleRemoveAllCompleted = (): void => {
+		const newTodos = todos.filter(t => !t.completed)
+		setTodos(newTodos)
+	}
+
 	const handleCompleted = (
 		//{ id, completed }: {id: TodoID, completed: TodoCompleted}
 		{ id, completed }: Pick<TodoType, 'id' | 'completed'>
@@ -95,7 +100,7 @@ const App: React.FC = () => {
 				activeCount = { activCount }
 				completedCount = { completedCount }
 				filterSelected = { filterSelected}
-				onClearCompleted={() => {}}
+				onClearCompleted={ handleRemoveAllCompleted }
 				handleFilterChange={ hadndleFilterChange }
 			/>
 		</div>
