@@ -3,46 +3,48 @@ import { useState } from 'react'
 import { Todos } from './components/Todos'
 import { 
 	FilterValue,
+	TodoTitle,
 	//type TodoCompleted, 
 	type TodoID, 
 	type Todo as TodoType 
 } from './types.declarations'
 import { TODO_FILTERS } from './consts'
 import { Footer } from './components/Footer'
+import { Header } from './components/Header'
 
 const mockTodos = [
 	{
-		id: 1,
+		id: '1',
 		title: 'Crear un proyecto con vite todo-list con React y TypeScript',
 		completed: true
 	},
 	{
-		id: 2,
+		id: '2',
 		title: 'Crear la base de datos PostgreSQL',
 		completed: false
 	},
 	{
-		id: 3,
+		id: '3',
 		title: 'Crear la api rest con Node.js y Express',
 		completed: false
 	},
 	{
-		id: 4,
+		id: '4',
 		title: 'Crear otra appi rest con Python y Flask',
 		completed: false
 	},
 	{
-		id: 5,
+		id: '5',
 		title: 'Crear la app con React Native',
 		completed: false
 	},
 	{
-		id: 6,
+		id: '6',
 		title: 'Crear la base de datos con MongoDB',
 		completed: false
 	},
 	{
-		id: 7,
+		id: '7',
 		title: 'Crear una api rest usando TDD con Jest',
 		completed: false
 	}
@@ -89,8 +91,19 @@ const App: React.FC = () => {
 		if (filterSelected === TODO_FILTERS.COMPLETED) return t.completed
 		return t
 	})
+
+	const handleAddTodo = ({ title }: { title: TodoTitle }): void => {
+		const newTodo = {
+			title,
+			id: crypto.randomUUID(),
+			completed: false
+		}
+		setTodos([...todos, newTodo])
+	}
+
 	return (
 		<div className='todoapp'>
+			<Header onAddTodo = { handleAddTodo } />
 			<Todos 
 				onToggleCompletedTodo = { handleCompleted }
 				onRemoveTodo = { handleRemove }
