@@ -1,0 +1,1 @@
+# [Curso de Next.js](https://www.youtube.com/watch?v=jMy4pVZMyLM&t=16s&ab_channel=midulive)
