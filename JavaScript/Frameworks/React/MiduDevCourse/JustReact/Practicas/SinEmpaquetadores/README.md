@@ -1,5 +1,5 @@
 
-# Proyecto sin empaquetadores:
+# [Proyecto sin empaquetadores:](https://www.youtube.com/watch?v=7iobxzd_2wY&ab_channel=midulive)
 
 ## 1. Creando el proyecto:
 
@@ -71,7 +71,7 @@ root.render(button) //renderizamos el elemento button en el root de nuestra apli
     - Renderizamos el elemento button en el root de nuestra aplicación.
 
 
-## 2. Anidando elementos:
+## 3. Anidando elementos:
 
 ### Modificando el index.js para anidar elementos:
 
@@ -97,3 +97,10 @@ root.render(div)
     - Creamos un elemento div, pero en este caso le pasamos como primer parametro React.Fragment para que sea un Fragment de React y como tercer parametro un array con los 3 botones.
     - Renderizamos el elemento div que es en realidad un Fragment de React en el root de nuestra aplicación.
 
+## 4. JSX:
+- JSX es una extensión de JavaScript que permite la creación de árboles DOM utilizando una sintaxis similar a XML. Creada por Facebook, está diseñada para ser utilizada con React. Los elementos JSX pueden tener atributos, hijos y expresiones.
+- Son los transpiladores como SWC y Babel los que se encargan de convertir el código JSX a JavaScript. Estos funcionan por debajo de la capa del navegador, por lo que no es necesario que el navegador entienda JSX para que funcione.
+- Es gracias a los empacadores como Webpack, Rollup y Parcel que podemos utilizar JSX en el navegador, ya que estos por debajo utilizan los transpiladores para convertir el código JSX a JavaScript, de forma que el navegador no necesite entender JSX para que funcione.
+- JSX tambien soporta expresiones de JavaScript, por lo que podemos utilizar variables, funciones, etc. Todo dentro de llaves {}. Pero no admite sentencias de JavaScript, por lo que no podemos utilizar if, for, while, etc. Para esto podemos utilizar operadores ternarios, map, filter, etc.
+
+# Fin del proyecto sin empaquetadores.
