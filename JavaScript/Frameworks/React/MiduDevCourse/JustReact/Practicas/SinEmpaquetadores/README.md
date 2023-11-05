@@ -1,7 +1,7 @@
 
 # Proyecto sin empaquetadores:
 
-## 1. Creando el proyecto
+## 1. Creando el proyecto:
 
 ### Creando el voileplate
 
@@ -23,6 +23,8 @@ touch index.html
 touch index.js
 ```
 
+## 2. Renderizando el primer elemento:
+
 ### Creando el index.html
 
 ```html
@@ -32,7 +34,6 @@ touch index.js
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React without bundler</title>
-    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div id="app"></div><!-- Contenedor de la aplicación -->
@@ -40,7 +41,7 @@ touch index.js
 </body>
 </html>
 ```
-#### Explicación
+#### Explicación:
     - Creamos un elemento div con el id="app" para que sea el contenedor de nuestra aplicación.
     - El atributo type="module" le dice al navegador que el archivo index.js es un módulo de JavaScript.
 
@@ -59,7 +60,7 @@ const button = React.createElement('button', null, 'Click me!') //creamos un ele
 
 root.render(button) //renderizamos el elemento button en el root de nuestra aplicación
 ```
-#### Explicación
+#### Explicación:
     - Importamos la libreria de react y el modulo de react-dom.
     - Obtenemos el elemento con el id="app".
     - Creamos el root (raiz) de nuestra aplicación.
@@ -69,18 +70,30 @@ root.render(button) //renderizamos el elemento button en el root de nuestra apli
         - El contenido del elemento. En este caso el texto "Click me!".
     - Renderizamos el elemento button en el root de nuestra aplicación.
 
-### Creando el style.css
 
-```css
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+## 2. Anidando elementos:
+
+### Modificando el index.js para anidar elementos:
+
+```javascript
+import React from "https://esm.sh/react@18.2.0"
+import ReactDOM from "https://esm.sh/react-dom@18.2.0/client"
+
+const appDomElement = document.getElementById("app")
+
+const root = ReactDOM.createRoot(appDomElement)
+
+//Creados 3 elementos para renderizar
+const button1 = React.createElement('button', {"class" : "btn", "data-id" : 123}, '[1] Click me!')
+const button2 = React.createElement('button', {"class" : "btn", "data_id" : 456}, '[2] Click me!')
+const button3 = React.createElement('button', {"class" : "btn", "data-1d" : 789}, '[3] Click me!')
+
+//Creamos un elemento div que contiene los 3 botones
+const div = React.createElement(React.Fragment, null, [button1, button2, button3])
+root.render(div)
 ```
+#### Explicación:
+    - Creamos 3 elementos de tipo button con sus respectivas propiedades y contenido.
+    - Creamos un elemento div, pero en este caso le pasamos como primer parametro React.Fragment para que sea un Fragment de React y como tercer parametro un array con los 3 botones.
+    - Renderizamos el elemento div que es en realidad un Fragment de React en el root de nuestra aplicación.
 
-## 2. Anidando elementos
