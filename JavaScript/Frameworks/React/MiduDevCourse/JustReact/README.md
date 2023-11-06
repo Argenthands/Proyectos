@@ -9,4 +9,17 @@
 -  **¿Qué es JSX?** Es una extensión de JavaScript que nos permite escribir código HTML dentro de JavaScript.
 
 ## Practicas:
-### 1 [importando sin empaquetadores]()
+### 1 Configurando el entorno de desarrollo:
+- Creando un repositorio multipaquete que contiene al resto de los proyectos.
+
+    ***Windows***
+    ```PowerShell
+    npm init -y
+    ```
+
+    ***Linux***
+    ```bash
+    npm init -y
+    ```
+### 2 [Proyecto sin empaquetadores, antes de JSX](./Practicas/SinEmpaquetadores/README.md)
+### 3 [Proyecto con VITE](./Practicas//ConVite//README.md)

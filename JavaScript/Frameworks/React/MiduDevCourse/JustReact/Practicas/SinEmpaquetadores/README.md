@@ -97,10 +97,11 @@ root.render(div)
     - Creamos un elemento div, pero en este caso le pasamos como primer parametro React.Fragment para que sea un Fragment de React y como tercer parametro un array con los 3 botones.
     - Renderizamos el elemento div que es en realidad un Fragment de React en el root de nuestra aplicación.
 
-## 4. JSX:
-- JSX es una extensión de JavaScript que permite la creación de árboles DOM utilizando una sintaxis similar a XML. Creada por Facebook, está diseñada para ser utilizada con React. Los elementos JSX pueden tener atributos, hijos y expresiones.
-- Son los transpiladores como SWC y Babel los que se encargan de convertir el código JSX a JavaScript. Estos funcionan por debajo de la capa del navegador, por lo que no es necesario que el navegador entienda JSX para que funcione.
-- Es gracias a los empacadores como Webpack, Rollup y Parcel que podemos utilizar JSX en el navegador, ya que estos por debajo utilizan los transpiladores para convertir el código JSX a JavaScript, de forma que el navegador no necesite entender JSX para que funcione.
-- JSX tambien soporta expresiones de JavaScript, por lo que podemos utilizar variables, funciones, etc. Todo dentro de llaves {}. Pero no admite sentencias de JavaScript, por lo que no podemos utilizar if, for, while, etc. Para esto podemos utilizar operadores ternarios, map, filter, etc.
+## 4. [JSX](https://facebook.github.io/jsx/):
+- [JSX](https://facebook.github.io/jsx/) es una extensión de JavaScript que permite la creación de árboles DOM utilizando una sintaxis similar a XML. Creada por Facebook, está diseñada para ser utilizada con React. Los elementos [JSX](https://facebook.github.io/jsx/) pueden tener atributos, hijos y expresiones.
+- Son los transpiladores como [SWC](https://swc.rs/) y [Babel](https://babeljs.io/) los que se encargan de convertir el código [JSX](https://facebook.github.io/jsx/) a JavaScript. Estos funcionan por debajo de la capa del navegador, por lo que no es necesario que el navegador entienda [JSX](https://facebook.github.io/jsx/) para que funcione.
+- Es gracias a los empacadores como Webpack, Rollup y Parcel que podemos utilizar [JSX](https://facebook.github.io/jsx/) en el navegador, ya que estos por debajo utilizan los transpiladores para convertir el código [JSX](https://facebook.github.io/jsx/) a JavaScript, de forma que el navegador no necesite entender [JSX](https://facebook.github.io/jsx/) para que funcione.
+- [JSX](https://facebook.github.io/jsx/) tambien soporta expresiones de JavaScript, por lo que podemos utilizar variables, funciones, etc. Todo dentro de llaves {}. Pero no admite sentencias de JavaScript, por lo que no podemos utilizar if, for, while, etc. Para esto podemos utilizar operadores ternarios, map, filter, etc.
+
 
 # Fin del proyecto sin empaquetadores.
