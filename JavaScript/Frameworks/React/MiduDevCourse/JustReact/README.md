@@ -10,7 +10,7 @@
 
 ## Practicas:
 ### 1 Configurando el entorno de desarrollo:
-- Creando un repositorio multipaquete que contiene al resto de los proyectos.
+- Creando un repositorio multipaquete que contiene al resto de los proyectos en la carpeta [Practicas](./Practicas/README.md)
 
     ***Windows***
     ```PowerShell
