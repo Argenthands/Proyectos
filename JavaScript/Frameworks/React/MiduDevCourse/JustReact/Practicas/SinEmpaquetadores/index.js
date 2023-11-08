@@ -10,3 +10,5 @@ const button2 = React.createElement('button', {"class" : "btn", "data_id" : 456}
 const button3 = React.createElement('button', {"class" : "btn", "data-1d" : 789}, '[3] Click me!')
 const div = React.createElement('div', null, [button1, button2, button3])
 root.render(div)
+
+//root = ReactDOM.createRoot(getElementById("app")).render(div)
