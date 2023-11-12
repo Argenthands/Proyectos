@@ -40,3 +40,33 @@
         );
         ```
         #### Observamos el resultado en el navegador:
+
+3. ## Creando un component: 
+
+    - **Creando un componente `Button`:**
+        - Creamos un archivo `Button.jsx` en la carpeta `src/components`.
+        - Creamos un componente `Button` que recibe un `props` y retorna un `button` con el texto que recibe por `props`.
+        ```jsx
+        // por convención los componentes se escriben con PascalCase, es decir la primera letra de todas las palabras en mayúscula sin espacio entre ellas.
+        export default function Button({ text }) {
+            return (
+                <div>{text}</div>
+            )
+        }
+        ```
+    - **Importando el componente `Button` en `main.jsx` y lo colocamos:**
+        - Importamos el componente `Button` en `main.jsx`.
+        ```jsx
+        /// ...
+        import Button from './components/Button';
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(
+            <React.Fragment>
+                <h1>Hola Mundo</h1>
+                <p>Esto es un párrafo</p>
+                <Button text="Click" />
+            </React.Fragment>
+        )
+        ```
+    ### `separation of concerns`, `reusability` y `composition`:
