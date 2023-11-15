@@ -1,0 +1,27 @@
+.tw-standarButton {
+    margin-left: 16px;
+    border: .75px solid #1da1f2;
+    border-radius: 999px;
+    padding: 6 16px;
+    font-weight: bold;
+}
+.tw-standarButton:hover {
+    background-color: #1da1f2;
+    color: white;
+    transition: 0.5s;
+}
+.tw-standarButton:active {
+    background-color: #1da1f2;
+    color: white;
+    transition: 0.5s;
+}
+.tw-standarButton:focus {
+    background-color: #1da1f2;
+    color: white;
+    transition: 0.5s;
+}
+.tw-standarButton:visited {
+    background-color: #1da1f2;
+    color: white;
+    transition: 0.5s;
+}

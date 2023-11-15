@@ -187,15 +187,16 @@
     #### Observamos el resultado en el navegador:
     ### Aplicando Estilos:
     - Existen multiples formas de estilar cuando usamos React:
-        1. Usando `Inline CSS` a travez de la propiedad `style` de los elementos. Pero cabe aclarar que cuando usamos [jsx]() y [React]() debemos pasarle los estilos en un objeto y no como string como lo hariamos en HTML.
+        1. Usando `Inline CSS` a travez de la propiedad `style` de los elementos. Pero cabe aclarar que cuando usamos [jsx]() y [React]() debemos pasarle los estilos en un objeto y no como string como lo hariamos en HTML. Ademas los nombres de las propiedades deben ser camelCase y sus valores deben ser string.
         ```jsx
-        <div style={{display: flex,  color: "red" }}>Hola Mundo</div>
+        <div style={{display: "flex",  color: "red", alignItems: "center" }}>Hola Mundo</div>
         ```
-        2. Usando `Dinamic objects inline styles` aqui en lugar de pasarle un objeto con los estilos le pasamos una variable que contenga un objeto con los estilos. Esto tiene sus ventajas puesto que los estilos pueden cambiar dinamicamente.
+        2. Usando `Dinamic objects inline styles` aqui en lugar de pasarle un objeto con los estilos le pasamos una variable que contenga un objeto con los estilos. Esto tiene sus ventajas puesto que los estilos pueden cambiar dinamicamente. Es conveniente aclarar que las claves del objeto deben ser camelCase y sus valores deben ser string.
         ```jsx
         const styles = {
-            display: flex,
-            color: "red"
+            display: "flex",
+            color: "red",
+            alignItems: "center"
         }
         <div style={styles}>Hola Mundo</div>
         ```
