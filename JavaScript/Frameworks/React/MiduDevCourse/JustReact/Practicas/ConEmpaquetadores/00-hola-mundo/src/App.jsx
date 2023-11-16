@@ -6,17 +6,21 @@ export function App() {
     const users = [
         {
             name: "Alejandro",
-            username: "@cuenta1"
+            username: "cuenta1",
+            isFolowing: true
         },
         {
             name: "Melina",
-            username: "@cuenta2"
+            username: "cuenta2",
+            isFolowing: false
         },
         {
             name: "Sofia",
-            username: "@cuenta3"
+            username: "cuenta3",
+            isFolowing: true
         }
     ]
+    const formatUserName = (userName) => `@${userName}`
 
     return (
         <>
@@ -28,6 +32,7 @@ export function App() {
                         <Card
                             key={index}
                             user={user}
+                            formatUserName={formatUserName}
                         />
                     )
                 })

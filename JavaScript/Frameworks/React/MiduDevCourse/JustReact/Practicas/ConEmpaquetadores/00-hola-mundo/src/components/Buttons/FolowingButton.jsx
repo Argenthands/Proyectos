@@ -2,9 +2,10 @@ import './Style.css'
 
 
 export default function FolowingButton({ isFolowing }) {
-    const text = isFolowing ? 'Siguiendo' : 'Seguir'
+    const text = isFolowing ? 'Seguir' : 'Siguiendo'
+    const buttonStyle = isFolowing ? 'tw-notFolowingButton' : 'tw-followingButton'
     return (
-        <button className='tw-standarButton'>{ text }</button>
+        <button className={ buttonStyle }>{ text }</button>
     )
 }
 

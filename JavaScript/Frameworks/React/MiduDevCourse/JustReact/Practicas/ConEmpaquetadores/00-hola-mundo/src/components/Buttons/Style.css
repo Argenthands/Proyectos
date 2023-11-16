@@ -10,18 +10,33 @@
     color: white;
     transition: 0.5s;
 }
-.tw-standarButton:active {
-    background-color: #1da1f2;
+
+.tw-notFolowingButton {
+    margin-left: 16px;
+    border: .75px solid #1da1f2;
+    border-radius: 999px;
+    padding: 6 16px;
+    font-weight: bold;
+    background-color: gray;
     color: white;
+}
+.tw-notFolowingButton:hover {
+    background-color: green;
+    color: black;
     transition: 0.5s;
 }
-.tw-standarButton:focus {
+
+.tw-followingButton {
+    margin-left: 16px;
+    border: .75px solid #1da1f2;
+    border-radius: 999px;
+    padding: 6 16px;
+    font-weight: bold;
     background-color: #1da1f2;
     color: white;
-    transition: 0.5s;
 }
-.tw-standarButton:visited {
-    background-color: #1da1f2;
+.tw-followingButton:hover {
+    background-color: red;
     color: white;
     transition: 0.5s;
 }
