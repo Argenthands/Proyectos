@@ -1,10 +1,11 @@
-// imagen, nombre, nombre de usuario y un botton de seguir
-import RandomImage from "../../assets/react.svg"
-import FolowingButton from "../Buttons/FolowingButton.jsx"
-import './Style.css'
 
-export function Card ({ user, formatUserName }) {
+import RandomImage from "../../../assets/react.svg"
+import FolowingButton from "../../Buttons/FolowingButton/FolowingButton.jsx"
+import "./FolowCard.css"
+
+export function FolowCard ({ user, formatUserName, children }) {
     const { name, username, isFolowing = false } = user || {};
+
     const  avatar = RandomImage
     return (
         <>
@@ -13,7 +14,7 @@ export function Card ({ user, formatUserName }) {
                         <header className="tw-followCard-header">
                             <img src={ avatar } alt="Avatar" className="tw-followCard-avatar" />
                             <div className="tw-followCard-info">
-                                <strong className="tw-followCard-name">{ name }</strong>
+                                <strong className="tw-followCard-name">{ children }</strong>
                                 <span className="tw-followCard-username">{ formatUserName(username) }</span>
                             </div>
                         </header>

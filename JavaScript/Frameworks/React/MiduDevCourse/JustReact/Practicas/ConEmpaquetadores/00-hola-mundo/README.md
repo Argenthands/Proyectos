@@ -26,7 +26,8 @@
         root.render(<h1>Hola Mundo</h1>);
         ```
         #### Observamos el resultado en el navegador:
-        ##### ***Nota:*** en este caso no fue necesario usar `React.createElement(etiqueta, {atributos}, [hijos]/contenido)` como en la verción sin boundle. Esto es debido a que estamos usando [JSX](https://www.w3schools.com/react/react_jsx.asp)
+### Notas:
+- En este caso no fue necesario usar `React.createElement(etiqueta, {atributos}, [hijos]/contenido)` como en la verción sin boundle. Esto es debido a que estamos usando [JSX](https://www.w3schools.com/react/react_jsx.asp)
 
     - **Agregando un gragment de React:**
         - Removemos el texto del `h1` y agregamos un `fragment` de React con dos elementos hijos.
@@ -185,8 +186,8 @@
     }
     ```
     #### Observamos el resultado en el navegador:
-    ### Aplicando Estilos:
-    - Existen multiples formas de estilar cuando usamos React:
+    ###  Estilos:
+    - #### Existen multiples formas de estilar cuando usamos React:
         1. Usando `Inline CSS` a travez de la propiedad `style` de los elementos. Pero cabe aclarar que cuando usamos [jsx]() y [React]() debemos pasarle los estilos en un objeto y no como string como lo hariamos en HTML. Ademas los nombres de las propiedades deben ser camelCase y sus valores deben ser string.
         ```jsx
         <div style={{display: "flex",  color: "red", alignItems: "center" }}>Hola Mundo</div>
@@ -212,3 +213,165 @@
         /// ...
         <div className={styles.card}>Hola Mundo</div>
         ```
+    - #### Aplicando los estilos:
+        - Creamos un archivo `Card.css` en la carpeta `src/components`.
+        ```css
+        .tw-followCard-container{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tw-followCard {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: .8rem;
+            justify-content: space-between;
+        }
+
+        .tw-followCard-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 18px;
+        }
+
+        .tw-followCard-info{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tw-followCard-name{
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            margin-bottom: 2px;
+        }
+        .tw-followCard-username{
+            opacity: .6;
+        }
+
+        .tw-followCard-avatar{
+            width: 48px;
+            height: 48px;
+            border-radius: 1000px;
+        }
+        ```
+        - Importamos el archivo `Card.css` en `Card.jsx`.
+        ```jsx
+        import "./Card.css"
+        /// ...
+        ```
+        - Aplicamos los estilos en el componente `Button`.
+        ```css
+        .tw-standarButton {
+            margin-left: 16px;
+            border: .75px solid #1da1f2;
+            border-radius: 999px;
+            padding: 6 16px;
+            font-weight: bold;
+        }
+        .tw-standarButton:hover {
+            background-color: #1da1f2;
+            color: white;
+            transition: 0.5s;
+        }
+
+        .tw-notFolowingButton {
+            margin-left: 16px;
+            border: .75px solid #1da1f2;
+            border-radius: 999px;
+            padding: 6 16px;
+            font-weight: bold;
+            background-color: gray;
+            color: white;
+        }
+        .tw-notFolowingButton:hover {
+            background-color: green;
+            color: black;
+            transition: 0.5s;
+        }
+
+        .tw-followingButton {
+            margin-left: 16px;
+            border: .75px solid #1da1f2;
+            border-radius: 999px;
+            padding: 6 16px;
+            font-weight: bold;
+            background-color: #1da1f2;
+            color: white;
+        }
+        .tw-followingButton:hover {
+            background-color: red;
+            color: white;
+            transition: 0.5s;
+        }
+        ```
+        - Importamos el archivo `Button.css` en `Button.jsx`.
+        ```jsx
+        import "./Button.css"
+        /// ...
+        ```
+6. ## Exportando funciones y children a demas de las props regulares:
+- Modificamos el return del archivo `App.jsx` para que el componente `Card` reciba un `children` y una `function` por `props`. modificamos el return
+```jsx
+    return (
+        <>
+            <h1>Hola Mundo</h1>
+            <p>Esto es un párrafo</p>
+            {
+                users.map((user, index) => {
+                    return (
+                        <FolowCard
+                            key={index}
+                            user={user}
+                            formatUserName={formatUserName}
+                        >
+                            {user.name}
+                        </FolowCard>
+                    )
+                })
+            }
+        </>
+    );
+```
+- Modificamos el `Card.jsx` para que reciba un `children` y una `function` por `props`.
+```jsx
+    export function Card ({ user, formatUserName, children }) {
+        const { name, username, isFolowing = false } = user || {};
+
+        const  avatar = RandomImage
+        return (
+            <>
+                <section className="tw-followCard-container">
+                    <article className="tw-followCard">
+                            <header className="tw-followCard-header">
+                                <img src={ avatar } alt="Avatar" className="tw-followCard-avatar" />
+                                <div className="tw-followCard-info">
+                                    <strong className="tw-followCard-name">{ children }</strong>
+                                    <span className="tw-followCard-username">{ formatUserName(username) }</span>
+                                </div>
+                            </header>
+                            <FolowingButton isFolowing={isFolowing} />
+                    </article>
+                </section>
+            </>
+        )
+    }
+```
+### Notas:
+    - De esta manera podemos observar que existe una props por defecto a la que llamamos **childre** que es el contenido que se encuentre embuelto por la etiqueta de cierre y apertura del componente. En este caso es el nombre del usuario.
+    - Tambien pudimos ver que es posible exportar funciones, en este caso la funcion `formatUserName` que recibe un `username` y lo devuelve con un `@` al principio. Esto es debido a que en JavaScript las funciones son tipos de primera clase, es decir que se pueden pasar como argumentos, retornarlas y asignarlas a variables.
+```jsx
+    export function formatUserName(username) {
+        return `@${username}`
+    }
+```
+7. ## Volvemos a ordenar el contenido para seguir un diseño escalable y mantenible.
+    ### Cambiando de lugar y de nombre los componentes:
+    - Movemos el archivo `Card.jsx` a la carpeta `src/components/Cards/FollowCard` junto con su archivo de estilos. Tambien les cambiamos el nombre a `FollowCard.jsx` y `FollowCard.css`. De esta manera podremos encontrar entre las tarjetas el archivo de las tarjetas de seguidores y sus respectivos estilos, a su vez podremos agregar otras tarjetas con otros estilos sin dificultad.
+    - Hacemos lo mismo con el componente `Button` y lo movemos a la carpeta `src/components/Buttons/FolowingButton` junto con su archivo de estilos. Tambien les cambiamos el nombre a `FolowingButton.jsx` y `FolowingButton.css`. De esta manera podremos encontrar entre los botones el archivo de los botones de seguir y sus respectivos estilos, a su vez podremos agregar otros botones con otros estilos sin dificultad.
+    - Es importante cambiar el nombre de las funciones exportadas y los import con sus respectivas rutas para que no se rompa el codigo.

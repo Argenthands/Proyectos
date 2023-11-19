@@ -1,5 +1,5 @@
 
-import { Card } from './components/FolowCards/Card.jsx';
+import { FolowCard } from "./components/Cards/FolowCards/FolowCard.jsx";
 
 export function App() {
 
@@ -29,11 +29,13 @@ export function App() {
             {
                 users.map((user, index) => {
                     return (
-                        <Card
+                        <FolowCard
                             key={index}
                             user={user}
                             formatUserName={formatUserName}
-                        />
+                        >
+                            {user.name}
+                        </FolowCard>
                     )
                 })
             }
