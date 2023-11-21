@@ -19,11 +19,24 @@
     font-weight: bold;
     background-color: gray;
     color: white;
+    width: 150px;
+    .NotHover {
+        display: block;
+    }
+    .OnHover {
+        display: none;
+    }
 }
 .tw-notFolowingButton:hover {
     background-color: green;
     color: black;
     transition: 0.5s;
+    .NotHover {
+        display: none;
+    }
+    .OnHover {
+        display: block;
+    }
 }
 
 .tw-followingButton {
@@ -34,9 +47,22 @@
     font-weight: bold;
     background-color: #1da1f2;
     color: white;
+    width: 150px;
+    .NotHover {
+        display: block;
+    }
+    .OnHover {
+        display: none;
+    }
 }
 .tw-followingButton:hover {
     background-color: red;
     color: white;
     transition: 0.5s;
+    .NotHover {
+        display: none;
+    }
+    .OnHover {
+        display: block;
+    }
 }

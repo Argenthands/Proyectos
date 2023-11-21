@@ -4,7 +4,7 @@ import './FolowingButton.css'
 export default function FolowingButton({ isFolowing }) {
 
     const [isFolowingState, setIsFolowingState] = useState(isFolowing)
-    const text = isFolowingState ? 'Seguir' : 'Siguiendo'
+    const text = isFolowingState ? ['Seguir', 'Empezar a seguir'] : ['Siguiendo', 'Dejar de seguir']
     const buttonStyle = isFolowingState ? 'tw-notFolowingButton' : 'tw-followingButton'
     const handleFolowingChange = () => {
         setIsFolowingState(!isFolowingState)
@@ -14,8 +14,12 @@ export default function FolowingButton({ isFolowing }) {
             className={ buttonStyle }
             onClick={ handleFolowingChange}
         >
-            { text }
+            <span className='NotHover'>
+                { text[0] }
+            </span>
+            <span className='OnHover'>
+                { text[1] }
+            </span>
         </button>
     )
 }
-

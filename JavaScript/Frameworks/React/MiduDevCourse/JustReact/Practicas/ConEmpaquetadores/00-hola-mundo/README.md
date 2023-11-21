@@ -370,8 +370,45 @@
         return `@${username}`
     }
 ```
+
 7. ## Volvemos a ordenar el contenido para seguir un diseño escalable y mantenible.
     ### Cambiando de lugar y de nombre los componentes:
     - Movemos el archivo `Card.jsx` a la carpeta `src/components/Cards/FollowCard` junto con su archivo de estilos. Tambien les cambiamos el nombre a `FollowCard.jsx` y `FollowCard.css`. De esta manera podremos encontrar entre las tarjetas el archivo de las tarjetas de seguidores y sus respectivos estilos, a su vez podremos agregar otras tarjetas con otros estilos sin dificultad.
     - Hacemos lo mismo con el componente `Button` y lo movemos a la carpeta `src/components/Buttons/FolowingButton` junto con su archivo de estilos. Tambien les cambiamos el nombre a `FolowingButton.jsx` y `FolowingButton.css`. De esta manera podremos encontrar entre los botones el archivo de los botones de seguir y sus respectivos estilos, a su vez podremos agregar otros botones con otros estilos sin dificultad.
     - Es importante cambiar el nombre de las funciones exportadas y los import con sus respectivas rutas para que no se rompa el codigo.
+
+8. ## Agregando interactividad a los componentes:
+    - ### Los Hooks:
+        - Los Hooks son funciones especiales que te permiten utilizar el estado y otras características de React en componentes funcionales, en lugar de tener que usar componentes de clase. Los hooks fueron introducidos en React 16.8 para hacer más fácil y reutilizable el manejo del estado y otros aspectos del ciclo de vida en componentes funcionales.
+        -Entre los más conocidos estan `useState`, `useEffect`, `useContext`, `useReducer`, `useCallback`, `useMemo`, `useRef`, `useImperativeHandle`, `useLayoutEffect`, `useDebugValue`.
+    - Vamos a usar el `useState` para cambiar el estado de los botones de seguir.
+    - Modificamos el componente `FolowingButton.jsx` para que al recibir la prop booleana `isFolowing` cambie el estado del boton.
+    ```jsx
+    import { useState } from 'react'
+    import './FolowingButton.css'
+
+    export default function FolowingButton({ isFolowing }) {
+
+        const [isFolowingState, setIsFolowingState] = useState(isFolowing)
+        const text = isFolowingState ? 'Seguir' : 'Siguiendo'
+        const buttonStyle = isFolowingState ? 'tw-notFolowingButton' : 'tw-followingButton'
+        const handleFolowingChange = () => {
+            setIsFolowingState(!isFolowingState)
+        }
+        return (
+            <button 
+                className={ buttonStyle }
+                onClick={ handleFolowingChange}
+            >
+                { text }
+            </button>
+        )
+    }
+    ```
+### Notas:
+- En este caso usamos el `useState` para cambiar el estado del boton de seguir. Para esto usamos la funcion `useState` que recibe un valor por defecto y devuelve un array con dos elementos, el primero es el valor del estado y el segundo es una funcion que nos permite cambiar el estado. Luego usamos el operador ternario para cambiar el texto y el estilo del boton dependiendo del estado. Por ultimo usamos la funcion `handleFolowingChange` para cambiar el estado del boton al hacer click en el.
+
+9. ## Cerrando el proyecto:
+
+### Bueno antes que nada quiero agradecerte por llegar hasta aqui y decirte que este proyecto fue creado con el fin de aprender a usar [React](https://es.reactjs.org/), el mismo fue diseñado siguiendo el [Curso de React [2023]: De cero hasta crear tus primeros componentes con estado](https://www.youtube.com/watch?v=7iobxzd_2wY&ab_channel=midulive)
+### Si te interesa puedes verlo y ayudarte con esta guia.
