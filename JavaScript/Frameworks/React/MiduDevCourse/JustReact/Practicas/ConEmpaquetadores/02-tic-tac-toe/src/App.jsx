@@ -26,8 +26,13 @@ function App() {
 	const [turn, setTurn] = useState(TURNS.PLAYER_ONE)
 
 	const updateBoard = (index) => {
+
+		//comprobar si la casilla esta ocupada
+		if (board[index]) return
+
 		//actualizar el tablero
-		const newBoard = [...board]
+		// se clona el tablero porque hay que tratar los estados como inmutables, esto es debido a que React internamente esta observando la referencia del estado y si se modifica el valor al que apunta la referencia, React no se entera de que ha cambiado el estado y no se vuelve a renderizar el componente
+		const newBoard = [...board] 
 		newBoard[index] = turn
 		setBoard(newBoard)
 		//cambiar de turno
@@ -65,5 +70,4 @@ function App() {
 		</>
 	)
 }
-
 export default App
