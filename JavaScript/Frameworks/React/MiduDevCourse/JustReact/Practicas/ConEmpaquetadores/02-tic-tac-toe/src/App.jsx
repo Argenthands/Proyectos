@@ -56,6 +56,12 @@ function App() {
 		return null
 	}
 
+	const resetGame = () => {
+		setBoard(Array(9).fill(null))
+		setTurn(TURNS.PLAYER_ONE)
+		setWinner(null)
+	}
+
 	const updateBoard = (index) => {
 
 		//comprobar si la casilla esta ocupada
@@ -119,7 +125,7 @@ function App() {
 									}
 								</header>
 								<footer>
-									<button>Empezar de nuevo</button>
+									<button onClick={resetGame}>Empezar de nuevo</button>
 								</footer>
 							</div>
 						</section>
