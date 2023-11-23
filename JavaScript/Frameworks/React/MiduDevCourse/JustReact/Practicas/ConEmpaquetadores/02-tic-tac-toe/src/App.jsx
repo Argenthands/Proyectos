@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Square } from "./components/Square/Square"
 //npm install canvas-confetti -E or npm install canvas-confetti --save-exact
 import confetti from 'canvas-confetti'
 
@@ -22,20 +23,6 @@ const TURNS = {
 	PLAYER_TWO: 'O',
 }
 
-const Square = ({ children, isSelected, updateBoard, index }) => {
-	const className = `square ${isSelected ? 'is-selected' : ''}`
-	const handleClick = () => {
-		updateBoard(index)
-	}
-	return(
-		<div 
-			className={ className }
-			onClick={ handleClick }
-		>
-			{ children }
-		</div>
-		)
-	}
 	
 function App() {
 	

@@ -144,3 +144,23 @@
     function App() {return (<></>)}
     export default App
     ```
+
+2. ## Creando los componentes:
+    1. ### Creando el `Square` en la ruta [./src/components/Square/Square.jsx](./src/components/Square/Square.jsx):
+        ```jsx
+        export const Square = ({ children, isSelected, updateBoard, index }) => {
+            const className = `square ${isSelected ? 'is-selected' : ''}`
+            const handleClick = () => {
+                updateBoard(index)
+            }
+            return (
+                <div
+                    className={className}
+                    onClick={handleClick}
+                >
+                    {children}
+                </div>
+            )
+        }
+        ```
+    2.
