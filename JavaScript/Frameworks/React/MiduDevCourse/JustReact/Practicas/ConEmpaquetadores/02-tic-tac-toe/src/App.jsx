@@ -1,4 +1,6 @@
 import { useState } from "react"
+//npm install canvas-confetti -E or npm install canvas-confetti --save-exact
+import confetti from 'canvas-confetti'
 
 // tengo que mejorar esto en un futuro, no es eficiente tener que comprobar todas las combinaciones para saber si hay un ganador
 const WINER_COMBINATIONS = [
@@ -81,6 +83,7 @@ function App() {
 		const newWinner = checkWinner(newBoard)
 		if (newWinner) {
 			setWinner(newWinner)
+			confetti()
 		}
 	}
 	return (
