@@ -1,29 +1,13 @@
 import { useState } from "react"
-import { Square } from "./components/Square/Square"
+import { Square } from "./components/Square/Square.jsx"
+import { TURNS } from "./constants.js"
+import { checkWinnerFrom } from "./logic/board.js"
+import { WinnerModal } from "./components/WinnerModal/WinnerModal.jsx"
+
 //npm install canvas-confetti -E or npm install canvas-confetti --save-exact
 import confetti from 'canvas-confetti'
 
-// tengo que mejorar esto en un futuro, no es eficiente tener que comprobar todas las combinaciones para saber si hay un ganador
-const WINER_COMBINATIONS = [
-	//filas --> el indice i no cambia y el j cambia
-	[0, 1, 2], 
-	[3, 4, 5], 
-	[6, 7, 8],
-	//columnas --> el indice j no cambia y el i cambia
-	[0, 3, 6],
-	[1, 4, 7],
-	[2, 5, 8],
-	//diagonales --> los indice i y j son 
-	[0, 4, 8],
-	[2, 4, 6],
-]
 
-const TURNS = {
-	PLAYER_ONE: 'X',
-	PLAYER_TWO: 'O',
-}
-
-	
 function App() {
 	
 	//Creando el estado del tablero y cargandolo con un array de 9 posiciones con valor null
@@ -34,16 +18,7 @@ function App() {
 
 	//Creando el estado ganador y cargandolo con el valor null que al ser falsy asumimos que implica que no hay ganador
 	const [winner, setWinner] = useState(null)
-	const checkWinner = (boardToCheck) => {
-		//revision de todas las combinaciones para saber si hay un ganador
-		for(const combination of WINER_COMBINATIONS) {
-			const [a, b, c] = combination
-			if (boardToCheck[a] && boardToCheck[a] === boardToCheck[b] && boardToCheck[a] === boardToCheck[c]) {
-				return boardToCheck[a]
-			}
-		}
-		return null
-	}
+	
 
 	const resetGame = () => {
 		setBoard(Array(9).fill(null))
@@ -67,7 +42,7 @@ function App() {
 		setTurn(newTurn)
 
 		//comprobar si hay un ganador
-		const newWinner = checkWinner(newBoard)
+		const newWinner = checkWinnerFrom(newBoard)
 		if (newWinner) {
 			setWinner(newWinner)
 			confetti()
@@ -100,27 +75,7 @@ function App() {
 						{ TURNS.PLAYER_TWO }
 					</Square>
 				</section>
-				{
-					winner !== null && (
-						<section className="winner">
-							<div className="text">
-								<h2>
-									{
-										winner === false? 'Empate' : `Ganador: ${winner}`
-									}
-								</h2>
-								<header className="win">
-									{
-										winner && <Square>{ winner }</Square>
-									}
-								</header>
-								<footer>
-									<button onClick={resetGame}>Empezar de nuevo</button>
-								</footer>
-							</div>
-						</section>
-					)
-				}
+				<WinnerModal winner={winner} resetGame={resetGame} />
 			</main>
 		</>
 	)
