@@ -1,4 +1,20 @@
+# Ignorar carpetas de entornos virtuales en todos los proyectos
 **/venv/
+**/.venv/
+**/__pycache__/
+
+# Ignorar carpetas de salida de proyectos
+**/dist/
+**/build/
+**/*.egg-info/
+
+# Ignorar archivos de caché y compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos de configuración
 **/node_modules/
 **.env
 
