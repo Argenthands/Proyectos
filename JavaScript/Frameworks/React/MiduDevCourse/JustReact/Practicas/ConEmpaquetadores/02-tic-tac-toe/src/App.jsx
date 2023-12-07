@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Square } from "./components/Square/Square.jsx"
 import { TURNS } from "./constants.js"
-import { checkWinnerFrom } from "./logic/board.js"
+import { checkEndGame, checkWinnerFrom } from "./logic/board.js"
 import { WinnerModal } from "./components/WinnerModal/WinnerModal.jsx"
 
 //npm install canvas-confetti -E or npm install canvas-confetti --save-exact
@@ -46,12 +46,15 @@ function App() {
 		if (newWinner) {
 			setWinner(newWinner)
 			confetti()
+		} else if (checkEndGame(newBoard)) {
+				setWinner(false)
 		}
 	}
 	return (
 		<>
 			<main className="board">
 				<h1>Tic Tac Toe</h1>
+				<button onClick={resetGame}>Reset Game</button>
 				<section className="game">
 					{
 						board.map((cell, index) => {
