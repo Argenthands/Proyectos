@@ -1,12 +1,10 @@
-#import os
-from moviepy.editor import ImageSequenceClip, ImageClip, concatenate_videoclips
+# Importar
+from VideoGenerator import crear_video
+from ImageResizer import resizor
 
-clips = []
-clip1 = ImageClip('images/Image1.jpg').set_duration(2)
-clip2 = ImageClip('images/Image2.jpg').set_duration(3)
-clip3 = ImageClip('images/Image3.jpg').set_duration(1)
-clips.append(clip1)
-clips.append(clip2)
-clips.append(clip3)
-video_clip =  concatenate_videoclips(clips, method="compose")
-video_clip.write_videofile('video.mp4', fps=24, remove_temp=True, codec="libx264", audio_codec="aac")
+if __name__ == '__main__':
+    # Redimensionar imágenes
+    list_of_images = ['images/Image1.jpg', 'images/Image2.jpg', 'images/Image3.jpg']
+    resizor(list_of_images)
+    list_of_resized_images = ['images/Image1_resized.jpg', 'images/Image2_resized.jpg', 'images/Image3_resized.jpg']
+    crear_video(list_of_resized_images)
