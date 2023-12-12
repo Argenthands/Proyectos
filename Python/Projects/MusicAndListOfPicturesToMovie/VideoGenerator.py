@@ -1,4 +1,4 @@
-from moviepy.editor import  ImageSequenceClip, ImageClip, AudioFileClip, concatenate_videoclips, vfx
+from moviepy.editor import  ImageSequenceClip, ImageClip, AudioFileClip, concatenate_videoclips, vfx, TextClip, CompositeVideoClip, VideoFileClip
 
 def crear_video(audio_path, images, output_path='video.mp4', fps=24, remove_temp=True, codec="libx264", audio_codec="aac", video_time=3, transition_time=1):
     clips = []
