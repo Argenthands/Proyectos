@@ -6,5 +6,5 @@ def resize_image(input_image, output_path, size=(1920, 1080)):
 
 def resizor(images):
     for image_path in images:
-        image_output_path = image_path.replace('.jpg', '_resized.jpg')
-        resize_image(image_path, image_output_path)
+        image_output_path = image_path.replace('Input', 'Resized')
+        resize_image(input_image=image_path, output_path=image_output_path)
