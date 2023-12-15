@@ -11,4 +11,4 @@ def Remove_images_from_the_list(directory):
     list = Get_images_from_directory(directory)
     for file in list:
         os.remove(file)
-    return "All files removed"
+    return f'All files from {directory} were removed.'

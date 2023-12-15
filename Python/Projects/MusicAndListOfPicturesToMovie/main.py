@@ -10,3 +10,5 @@ if __name__ == '__main__':
     list_of_resized_images = Get_images_from_directory('assets/images/Resized/')
     music = 'assets/musics/music.mp3'
     crear_video(audio_path=music, images=list_of_resized_images)
+    print(Remove_images_from_the_list('assets/images/Resized/'))
+    print(Remove_images_from_the_list('assets/images/Input/'))
