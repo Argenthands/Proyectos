@@ -1,4 +1,4 @@
-from moviepy.editor import   AudioFileClip, concatenate_videoclips
+from moviepy.editor import AudioFileClip, concatenate_videoclips
 from CreateVideoFromImages import create_video_from_images
 
 def crear_video(audio_path, images, output_path='video.mp4', fps=24, remove_temp=True, codec="libx264", audio_codec="aac", video_time=4, transition_time=0.5):
