@@ -1,7 +1,6 @@
-# Importar
 from GetAndRemoveFiles import Get_elements_from_directory, Remove_elements_from_the_directory
 from ImageResizer import resizor
-from VideoGenerator import crear_video
+from VideoGenerator import create_video
 
 if __name__ == '__main__':
     # Redimensionar imágenes
@@ -14,7 +13,7 @@ if __name__ == '__main__':
         extra_video = extra_video[0]
     else:
         extra_video = None
-    crear_video(audio_path=music, images=list_of_resized_images, after_or_before='after', extra_video=extra_video)
+    create_video(audio_path=music, images=list_of_resized_images, after_or_before='after', extra_video=extra_video)
     print(Remove_elements_from_the_directory('assets/images/Resized/'))
     print(Remove_elements_from_the_directory('assets/images/Input/'))
     print(Remove_elements_from_the_directory('assets/videos/'))

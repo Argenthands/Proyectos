@@ -1,6 +1,5 @@
 from moviepy.editor import ImageClip, vfx
 
-
 def create_video_from_images(images, clip_time, transition_time):
     clips = []
     for image_path in images:

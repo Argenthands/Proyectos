@@ -1,8 +1,7 @@
 from moviepy.editor import AudioFileClip, concatenate_videoclips, VideoFileClip
 from CreateVideoFromImages import create_video_from_images
 
-
-def crear_video(
+def create_video(
         audio_path, 
         images,
         extra_video,
@@ -34,4 +33,4 @@ def crear_video(
             print('there is no option for after_or_before')
 
     video_clip.write_videofile(output_path, fps=fps, remove_temp=remove_temp, codec=codec, audio_codec=audio_codec)
-
+    audio.close()
