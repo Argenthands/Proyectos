@@ -7,7 +7,7 @@ if __name__ == '__main__':
     list_of_images = Get_elements_from_directory('assets/images/Input/')
     resizor(list_of_images)
     list_of_resized_images = Get_elements_from_directory('assets/images/Resized/')
-    music = Get_elements_from_directory('assets/musics/')[0]
+    music = Get_elements_from_directory('assets/sound/')[0]
     extra_video = Get_elements_from_directory('assets/videos/')
     if len(extra_video) > 0:
         extra_video = extra_video[0]
@@ -17,4 +17,4 @@ if __name__ == '__main__':
     print(Remove_elements_from_the_directory('assets/images/Resized/'))
     print(Remove_elements_from_the_directory('assets/images/Input/'))
     print(Remove_elements_from_the_directory('assets/videos/'))
-    print(Remove_elements_from_the_directory('assets/musics/'))
+    print(Remove_elements_from_the_directory('assets/sound/'))
