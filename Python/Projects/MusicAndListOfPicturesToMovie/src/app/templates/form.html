@@ -1,0 +1,16 @@
+<!-- templates/form.html -->
+
+<form action="/upload" method="post" enctype="multipart/form-data" class="col-sm-6 col-lg-4">
+    <label for="image" class="">Seleccione de 1 a 8 imágenes (jpg) para el video</label>
+    <input type="file" name="image[]" accept="image/*" multiple required><br>
+
+    <label for="audio" class="">Seleccione un archivo de sonido (mp3) para usar de fondo </label>
+    <input type="file" name="audio" accept="audio/*" required><br>
+
+    <label for="video" class="">Seleccione un archivo de video (mp4) opcional para agregar al video</label>
+    <input type="file" name="video" accept="video/*" required><br>
+
+    <label for="option" class="">Elegir si el video opcional va al comienzo o al final</label>
+
+    <button type="submit" class="btn-Submit">Generar Video</button>
+</form>
