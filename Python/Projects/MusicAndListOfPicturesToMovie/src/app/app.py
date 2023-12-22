@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
+from subprocess import run
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
@@ -55,11 +57,21 @@ def upload():
 
 @app.route('/success')
 def success():
-    return 'Archivos subidos con éxito'
+    return render_template('success.html')
+
+@app.route('/run_script', methods=['POST'])
+def run_script():
+    # Ruta al script que deseas ejecutar
+    script_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'scripts', 'main.py')
+
+    # Ejecutar el script
+    run(['python', script_path])
+
+    return redirect(url_for('success'))
 
 @app.route('/error')
 def error():
-    return 'Error al subir archivos'
+    return 'Algo salio mals'
 
 if __name__ == '__main__':
     app.run(debug=True)
