@@ -36,30 +36,12 @@
    
       <!-- header section start -->
       <div class="header_section">
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="logo" href="index.html"><img src="https://i.ibb.co/SNGj2Xc/7a5ea5a5-e64d-4472-bd82-7ac2484663a8.jpg"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="index.html">Home</a>
-                  </li>
-               </ul>
-            </div>
-         </nav>
+         {% include 'header-section.html' %}
       </div>
       <!-- header section end -->
       <!-- banner section end -->
       <div class="banner_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="banner_taital" >Bienvenidos a <br> <span style="color: #df9911"> Della Memoria</span></div>
-               </div>
-            </div>
-         </div>
+         {% include 'banner-section.html' %}
       </div>
       <!-- banner section end -->
       <!-- arrival section start -->
@@ -89,7 +71,7 @@
             <div class="row">
                <div class="col-md-6">
                   <div class="image_17">
-                     <div class="image_17"><img src="images/img-17.png"></div>
+                     <div class="image_17"><img src="../static/images/img-17.png"></div>
                   </div>
                </div>
                  <div class="col-md-6">
@@ -101,7 +83,7 @@
                <div class="mail_main">
                   <input type="text" class="email_text" placeholder="Ingresa el codigo" name="Enter Your email">
                   <div class="right_arrow">
-                     <a href="#"> <img src="images/right-arrow.png"></a>
+                     <a href="#"> <img src="../static/images/right-arrow.png"></a>
                   </div>
                </div>
                </div>
@@ -123,7 +105,7 @@
                   <div class="iamge_movies_main">
                      <div class="iamge_movies">
                         <div class="image_3">
-                           <img src="images/img-3.png" class="image" style="width:100%">
+                           <img src="../static/images/img-3.png" class="image" style="width:100%">
                            <div class="middle">
                               <div class="playnow_bt">Play</div> <!--Aqui  que se abra el video de ejemplo -->
                            </div>
@@ -132,7 +114,7 @@
                      </div>
                      <div class="iamge_movies">
                         <div class="image_3">
-                           <img src="images/img-4.png" class="image" style="width:100%">
+                           <img src="../static/images/img-4.png" class="image" style="width:100%">
                            <div class="middle">
                               <div class="playnow_bt">Play</div> <!--Aqui  que se abra el video de ejemplo -->
                            </div>
@@ -141,7 +123,7 @@
                      </div>
                      <div class="iamge_movies">
                         <div class="image_3">
-                           <img src="images/img-5.png" class="image" style="width:100%">
+                           <img src="../static/images/img-5.png" class="image" style="width:100%">
                            <div class="middle">
                               <div class="playnow_bt">Play</div> <!--Aqui  que se abra el video de ejemplo -->
                            </div>
@@ -150,7 +132,7 @@
                      </div>
                      <div class="iamge_movies">
                         <div class="image_3">
-                           <img src="images/img-6.png" class="image" style="width:100%">
+                           <img src="../static/images/img-6.png" class="image" style="width:100%">
                            <div class="middle">
                               <div class="playnow_bt">Play</div> <!--Aqui  que se abra el video de ejemplo -->
                            </div>
@@ -159,7 +141,7 @@
                      </div>
                      <div class="iamge_movies">
                         <div class="image_3">
-                           <img src="images/img-7.png" class="image" style="width:100%">
+                           <img src="../static/images/img-7.png" class="image" style="width:100%">
                            <div class="middle">
                               <div class="playnow_bt">Play</div> <!--Aqui  que se abra el video de ejemplo -->
                            </div>
@@ -183,9 +165,9 @@
             
             <div class="social_icon">
                <ul>
-                  <li><a href="#"><img src="images/fb-icon.png"></a></li>
+                  <li><a href="#"><img src="../static/images/fb-icon.png"></a></li>
                   
-                  <li><a href="#"><img src="images/instagram-icon.png"></a></li>
+                  <li><a href="#"><img src="../static/images/instagram-icon.png"></a></li>
                </ul>
             </div>
          </div>
