@@ -1,0 +1,35 @@
+{
+    "docker": {
+        "docker --help": "devuelve la ayuda de docker",
+        "docker --version": "devuelve la version de docker",
+        "docker info": "devuelve informacion sobre el sistema docker",
+        "docker container": {
+            "docker container ls": "lista los contenedores en ejecucion",
+            "docker container ls -a": "lista todos los contenedores",
+            "docker container ls -aq": "lista todos los contenedores en modo silencioso",
+            "docker container run <image>": "ejecuta un contenedor cuya imagen es <image>",
+            "flags":[
+                "--detach: ejecuta el contenedor en segundo plano",
+                "--name <name>: asigna un nombre al contenedor",
+                "--publish <host_port>:<container_port>: permite acceder al contenedor donde <host_port> es el puerto del host y <container_port> es el puerto del contenedor",
+                "--publish-all: permite acceder a todos los puertos del contenedor",
+                "--interactive: ejecuta el contenedor en modo interactivo",
+                "--env <variable>: asigna una variable de entorno al contenedor"
+            ]
+        },
+        "docker image": {
+            "docker image ls": "lista las imagenes las imagenes disponibles en el sistema local",
+            "docker image ls -a": "lista todas las imagenes disponibles en el sistema local",
+            "docker image ls -aq": "lista todas las id de las imagenes disponibles en el sistema local",
+            "docker image rm <image>": "elimina la imagen <image>",
+            "docker image rm -f <image>": "elimina la imagen <image> forzadamente",
+            "docker image pull <image>": "descarga la imagen <image>",
+            "docker image push <image>": "sube la imagen <image> a un repositorio",
+            "docker image build -t <image> <path>": "construye una imagen a partir de un Dockerfile",
+            "flags":[
+                "-t <image>: asigna un nombre a la imagen",
+                "<path>: ruta donde se encuentra el Dockerfile"
+            ]
+        }
+    }
+}
