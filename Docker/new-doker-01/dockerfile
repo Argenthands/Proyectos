@@ -1,31 +1,17 @@
-# Usar Ubuntu 20.04 como base
-FROM ubuntu:20.04
+# Un archivo docker (dockerfile) comienza siempre importanto la imagen base. 
+# Utilizamos la palabra clave 'FROM' para hacerlo.
+# En nuestro ejemplo, queremos importar la imagen de python.
+# Así que escribimos 'python' para el nombre de la imagen y 'latest' para la versión.
+FROM python:latest
 
-# Evitar que se solicite la interacción del usuario durante la construcción de la imagen
-ARG DEBIAN_FRONTEND=noninteractive
+# Para lanzar nuestro código python, debemos importarlo a nuestra imagen.
+# Utilizamos la palabra clave 'COPY' para hacerlo.
+# El primer parámetro 'main.py' es el nombre del archivo en el host.
+# El segundo parámetro '/' es la ruta donde poner el archivo en la imagen.
+# Aquí ponemos el archivo en la carpeta raíz de la imagen. 
+COPY main.py /
 
-# Actualizar el sistema e instalar las dependencias necesarias
-RUN apt-get update && apt-get install -y \
-    python3.8 \
-    python3-pip \
-    ffmpeg \
-    libsm6 \
-    libxext6
-
-# Crear un directorio de trabajo
-WORKDIR /app
-
-# Copiar el archivo de requerimientos al contenedor
-COPY requirements.txt .
-
-# Instalar las dependencias de Python
-RUN pip3 install -r requirements.txt
-
-# Copiar el resto de los archivos del proyecto al contenedor
-COPY . .
-
-# Exponer el puerto en el que se ejecutará la aplicación
-EXPOSE 5000
-
-# Comando para ejecutar la aplicación
-CMD ["python3", "app.py"]
+# Necesitamos definir el comando a lanzar cuando vayamos a ejecutar la imagen.
+# Utilizamos la palabra clave 'CMD' para hacerlo.
+# El siguiente comando ejecutará "python ./main.py".
+CMD [ "python", "./main.py" ]
