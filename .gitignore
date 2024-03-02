@@ -43,3 +43,6 @@ dist-ssr
 *.sln
 *.sw?
 *.vite
+
+# Specific temporary files
+*\temp*
